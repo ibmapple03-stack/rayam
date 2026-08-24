@@ -1,0 +1,1257 @@
+<title>Rayam Security Limited</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Rayam Security Limited — licensed private security services in Abuja, Nigeria. Manned guarding, mobile patrol, CCTV monitoring, port &amp; terminal security, K9 units, executive protection, and 24/7 command center coverage nationwide." />
+<meta name="theme-color" content="#002B4D" />
+<link rel="icon" type="image/png" href="images/logo-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: {
+            950: '#000d17',
+            900: '#001a30',
+            800: '#002B4D',
+            700: '#02385f',
+            600: '#03477a',
+            500: '#065294',
+          },
+          royal: {
+            600: '#0060b3',
+            500: '#0074D9',
+            400: '#2e8ee6',
+            300: '#6fb3ee',
+            200: '#a9d1f5',
+            100: '#dcedfc',
+            50: '#F2F4F7',
+          },
+        },
+        fontFamily: {
+          display: ['"Playfair Display"', 'serif'],
+          body: ['Montserrat', 'sans-serif'],
+        },
+        boxShadow: {
+          'navy-lg': '0 24px 48px -12px rgba(0, 26, 48, 0.45), 0 8px 24px -8px rgba(0, 116, 217, 0.18)',
+          'navy-md': '0 12px 28px -8px rgba(0, 26, 48, 0.35), 0 4px 12px -4px rgba(0, 116, 217, 0.15)',
+          'glow': '0 0 0 1px rgba(255,255,255,0.08), 0 20px 60px -10px rgba(0, 116, 217, 0.35)',
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  :root {
+    --deep-blue: #002B4D;
+    --royal-blue: #0074D9;
+    --light-gray: #F2F4F7;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { background: #F2F4F7; }
+
+  /* Grain / noise texture overlay */
+  .grain {
+    position: relative;
+    isolation: isolate;
+  }
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.35;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Layered radial gradient backdrops */
+  .bg-hero-gradient {
+    background-image:
+      radial-gradient(ellipse 80% 60% at 15% 0%, rgba(0, 116, 217, 0.35), transparent 60%),
+      radial-gradient(ellipse 70% 60% at 100% 100%, rgba(6, 82, 148, 0.4), transparent 55%),
+      linear-gradient(180deg, #000d17 0%, #001a30 45%, #002B4D 100%);
+  }
+  .bg-cta-gradient {
+    background-image:
+      radial-gradient(ellipse 60% 90% at 90% 10%, rgba(0, 116, 217, 0.35), transparent 55%),
+      radial-gradient(ellipse 60% 60% at 5% 100%, rgba(2, 56, 95, 0.55), transparent 55%),
+      linear-gradient(120deg, #001a30 0%, #002B4D 60%, #02385f 100%);
+  }
+  .bg-panel-gradient {
+    background-image:
+      radial-gradient(ellipse 70% 70% at 100% 0%, rgba(0, 116, 217, 0.25), transparent 60%),
+      linear-gradient(160deg, #001220 0%, #001a30 55%, #002B4D 100%);
+  }
+
+  /* Glassmorphism */
+  .glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+  }
+  .glass-light {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(16px) saturate(160%);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+  }
+  .glass-nav {
+    background: rgba(0, 13, 23, 0.55);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+  }
+
+  /* Reveal on scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* Marquee */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 32s linear infinite;
+  }
+  .marquee-pause:hover .marquee-track { animation-play-state: paused; }
+
+  /* Radar pulse (Lottie-equivalent motion, hand-built SVG/CSS) */
+  @keyframes radar-ping {
+    0% { transform: scale(0.6); opacity: 0.7; }
+    100% { transform: scale(2.2); opacity: 0; }
+  }
+  .radar-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    border: 1.5px solid rgba(111, 179, 238, 0.7);
+    animation: radar-ping 3s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
+  .radar-ring.d2 { animation-delay: 1s; }
+  .radar-ring.d3 { animation-delay: 2s; }
+
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-14px); }
+  }
+  .float-slow { animation: float-slow 6s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite; }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
+  }
+  .pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+  @keyframes scan-sweep {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+  .scan-sweep { animation: scan-sweep 2.6s linear infinite; }
+
+  @keyframes dash-draw {
+    from { stroke-dashoffset: 240; }
+    to { stroke-dashoffset: 0; }
+  }
+  .dash-draw { stroke-dasharray: 240; animation: dash-draw 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+  /* Spring-style hover lift */
+  .lift {
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .lift:hover { transform: translateY(-8px); }
+
+  .btn-spring { transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s ease; }
+  .btn-spring:hover { transform: translateY(-3px) scale(1.02); }
+  .btn-spring:active { transform: translateY(0) scale(0.98); }
+
+  /* Focus-visible states for accessibility */
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+    outline: 2px solid #2e8ee6;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Parallax layers */
+  .parallax-bg {
+    will-change: transform;
+    transition: transform 0.15s linear;
+  }
+
+  /* Duotone treatment for photography */
+  .duotone-navy {
+    filter: grayscale(0.35) contrast(1.1) brightness(0.9);
+  }
+
+  ::selection { background: #0074D9; color: white; }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #F2F4F7; }
+  ::-webkit-scrollbar-thumb { background: #6fb3ee; border-radius: 999px; }
+  ::-webkit-scrollbar-thumb:hover { background: #0074D9; }
+
+  .font-display { font-family: 'Playfair Display', serif; }
+  .font-body { font-family: 'Montserrat', sans-serif; }
+
+  .clip-diagonal { clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%); }
+
+  /* Camera tile scan glow */
+  .cam-tile { position: relative; overflow: hidden; }
+  .cam-tile::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: -20%;
+    height: 40%;
+    background: linear-gradient(180deg, rgba(111,179,238,0) 0%, rgba(111,179,238,0.18) 50%, rgba(111,179,238,0) 100%);
+  }
+
+  .text-balance { text-wrap: balance; }
+</style>
+</head>
+<body class="font-body text-navy-900 antialiased overflow-x-hidden">
+
+  <!-- ============ TOP UTILITY BAR ============ -->
+  <div class="hidden sm:block bg-navy-950 text-royal-100/80 text-[12px] tracking-wide">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between py-2">
+      <div class="flex items-center gap-6">
+        <a href="tel:+2348000072926" class="flex items-center gap-2 hover:text-white transition-colors duration-300">
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h1.5a2.25 2.25 0 002.25-2.25v-1.372a1.5 1.5 0 00-1.128-1.453l-4.026-1.006a1.5 1.5 0 00-1.51.432l-.665.665a1.125 1.125 0 01-1.298.21 12.035 12.035 0 01-5.51-5.511 1.125 1.125 0 01.21-1.297l.665-.665a1.5 1.5 0 00.432-1.51L7.585 3.378a1.5 1.5 0 00-1.453-1.128H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+          24/7 Emergency Line: +234 800 007 2926
+        </a>
+        <a href="mailto:info@rayamsecurity.com" class="hidden md:flex items-center gap-2 hover:text-white transition-colors duration-300">
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+          info@rayamsecurity.com
+        </a>
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="hidden lg:inline text-white/50">No. 2 Ahmadu Ali Crescent, Utako, Abuja</span>
+        <div class="flex items-center gap-3">
+          <a href="#" aria-label="LinkedIn" class="hover:text-white transition-colors duration-300"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 110-4.125 2.062 2.062 0 010 4.125zM7.119 20.452H3.554V9h3.565v11.452z"/></svg></a>
+          <a href="#" aria-label="X" class="hover:text-white transition-colors duration-300"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" aria-label="Instagram" class="hover:text-white transition-colors duration-300"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.332.014 7.052.072 2.695.272.273 2.69.073 7.052.014 8.332 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.332 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.668-.072-4.948-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <nav class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="#home" class="flex items-center gap-3 group">
+          <img src="images/logo-icon.png" width="42" height="42" alt="Rayam Security Limited shield logo" class="shrink-0 transition-transform duration-500 group-hover:scale-105" />
+          <span class="leading-none">
+            <span id="wordmark" class="block font-display font-extrabold text-lg lg:text-xl tracking-tight text-white transition-colors duration-500">RAYAM SECURITY</span>
+            <span id="wordmark-sub" class="block font-body font-semibold text-[11px] tracking-[0.35em] text-royal-300 transition-colors duration-500">LIMITED</span>
+          </span>
+        </a>
+
+        <!-- Desktop nav -->
+        <div class="hidden lg:flex items-center gap-9">
+          <a href="#about" class="nav-link text-sm font-semibold tracking-wide text-white/85 hover:text-white transition-colors duration-300">About</a>
+          <a href="#services" class="nav-link text-sm font-semibold tracking-wide text-white/85 hover:text-white transition-colors duration-300">Services</a>
+          <a href="#technology" class="nav-link text-sm font-semibold tracking-wide text-white/85 hover:text-white transition-colors duration-300">Technology</a>
+          <a href="#why-us" class="nav-link text-sm font-semibold tracking-wide text-white/85 hover:text-white transition-colors duration-300">Why Us</a>
+          <a href="#contact" class="nav-link text-sm font-semibold tracking-wide text-white/85 hover:text-white transition-colors duration-300">Contact</a>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <a href="#contact" class="hidden md:inline-flex btn-spring items-center gap-2 bg-royal-500 hover:bg-royal-400 text-white text-sm font-bold px-6 py-3 rounded-full shadow-navy-md">
+            Request a Quote
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
+          </a>
+          <!-- Mobile menu button -->
+          <button id="menu-btn" aria-label="Open menu" class="lg:hidden text-white p-2">
+            <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5"/></svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile menu panel -->
+    <div id="mobile-menu" class="lg:hidden hidden fixed inset-x-0 top-20 bottom-0 bg-navy-950 border-t border-white/10 shadow-navy-lg overflow-y-auto">
+      <div class="px-6 py-6 flex flex-col gap-5">
+        <a href="#about" class="text-white font-semibold">About</a>
+        <a href="#services" class="text-white font-semibold">Services</a>
+        <a href="#technology" class="text-white font-semibold">Technology</a>
+        <a href="#why-us" class="text-white font-semibold">Why Us</a>
+        <a href="#contact" class="text-white font-semibold">Contact</a>
+        <a href="#contact" class="btn-spring inline-flex justify-center items-center gap-2 bg-royal-500 text-white text-sm font-bold px-6 py-3 rounded-full mt-2">Request a Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section id="home" class="relative min-h-screen flex items-end bg-navy-950 grain overflow-hidden">
+    <div id="hero-bg" class="parallax-bg absolute inset-0 -top-16 -bottom-16">
+      <img src="images/abuja-cbd.jpg" alt="Aerial view of the Central Business District in Abuja, Nigeria" class="w-full h-full object-cover" />
+    </div>
+    <div class="absolute inset-0 bg-hero-gradient opacity-95"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/60 to-navy-950/20"></div>
+
+    <!-- radar motif, top right -->
+    <div class="hidden lg:flex absolute top-32 right-16 w-40 h-40 items-center justify-center opacity-80">
+      <div class="radar-ring"></div>
+      <div class="radar-ring d2"></div>
+      <div class="radar-ring d3"></div>
+      <div class="relative w-4 h-4 rounded-full bg-royal-300 pulse-dot shadow-glow"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pb-24 pt-40 w-full">
+      <div class="max-w-3xl">
+        <div class="reveal is-visible inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-8">
+          <span class="w-2 h-2 rounded-full bg-royal-300 pulse-dot"></span>
+          <span class="text-[12px] font-semibold tracking-[0.2em] text-royal-100 uppercase">Licensed Private Security · Abuja, Nigeria</span>
+        </div>
+        <h1 class="reveal is-visible reveal-delay-1 font-display font-extrabold text-white text-balance text-5xl sm:text-6xl lg:text-7xl leading-[1.03] tracking-[-0.03em]">
+          Protecting What<br class="hidden sm:block" /> Matters Most
+        </h1>
+        <p class="reveal is-visible reveal-delay-2 mt-7 text-lg lg:text-xl text-royal-50/85 leading-[1.7] max-w-xl">
+          Rayam Security Limited delivers reliable, professional, and technology-driven protection for corporations, government institutions, and residences — monitored around the clock from our command center in Abuja.
+        </p>
+        <div class="reveal is-visible reveal-delay-3 mt-10 flex flex-wrap items-center gap-4">
+          <a href="#contact" class="btn-spring inline-flex items-center gap-2 bg-royal-500 hover:bg-royal-400 text-white font-bold text-base px-8 py-4 rounded-full shadow-navy-lg">
+            Request a Free Consultation
+          </a>
+          <a href="#services" class="btn-spring inline-flex items-center gap-2 glass hover:bg-white/15 text-white font-bold text-base px-8 py-4 rounded-full">
+            Explore Our Services
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+          </a>
+        </div>
+
+        <div class="reveal is-visible reveal-delay-4 mt-16 flex flex-wrap gap-x-10 gap-y-4">
+          <div class="flex items-center gap-2.5 text-white/80 text-sm font-semibold">
+            <svg class="w-5 h-5 text-royal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+            Licensed &amp; Fully Compliant
+          </div>
+          <div class="flex items-center gap-2.5 text-white/80 text-sm font-semibold">
+            <svg class="w-5 h-5 text-royal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            24/7 Monitoring
+          </div>
+          <div class="flex items-center gap-2.5 text-white/80 text-sm font-semibold">
+            <svg class="w-5 h-5 text-royal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.159.69.159 1.006 0z"/></svg>
+            Nationwide Coverage
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- floating stat card -->
+    <div class="reveal is-visible reveal-delay-4 hidden xl:block absolute right-10 lg:right-16 bottom-28 z-10 float-slow">
+      <div class="glass rounded-2xl px-7 py-6 shadow-glow">
+        <p class="font-display font-extrabold text-4xl text-white">500<span class="text-royal-300">+</span></p>
+        <p class="text-xs font-semibold tracking-wide text-royal-100/80 mt-1">Officers Deployed Nationwide</p>
+      </div>
+    </div>
+
+    <!-- scroll indicator -->
+    <a href="#trust" aria-label="Scroll down" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/60 hover:text-white transition-colors duration-300">
+      <span class="text-[10px] tracking-[0.3em] uppercase">Scroll</span>
+      <svg class="w-5 h-5 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+    </a>
+  </section>
+
+  <!-- ============ SECTOR MARQUEE ============ -->
+  <section id="trust" class="bg-navy-900 py-6 marquee-pause overflow-hidden border-y border-white/5">
+    <div class="marquee-track">
+      <div class="flex items-center gap-16 pr-16">
+        <span class="text-royal-100/60 font-semibold tracking-[0.15em] text-sm uppercase">Corporate &amp; Commercial</span>
+        <span class="text-royal-300/40">◆</span>
+        <span class="text-royal-100/60 font-semibold tracking-[0.15em] text-sm uppercase">Government &amp; Diplomatic</span>
+        <span class="text-royal-300/40">◆</span>
+        <span class="text-royal-100/60 font-semibold tracking-[0.15em] text-sm uppercase">Residential Estates</span>
+        <span class="text-royal-300/40">◆</span>
+        <span class="text-royal-100/60 font-semibold tracking-[0.15em] text-sm uppercase">Oil &amp; Gas</span>
+        <span class="text-royal-300/40">◆</span>
+        <span class="text-royal-100/60 font-semibold tracking-[0.15em] text-sm uppercase">Banking &amp; Finance</span>
+        <span class="text-royal-300/40">◆</span>
+        <span class="text-royal-100/60 font-semibold tracking-[0.15em] text-sm uppercase">Retail &amp; Hospitality</span>
+        <span class="text-royal-300/40">◆</span>
+        <span class="text-royal-100/60 font-semibold tracking-[0.15em] text-sm uppercase">Events &amp; Entertainment</span>
+        <span class="text-royal-300/40">◆</span>
+        <span class="text-royal-100/60 font-semibold tracking-[0.15em] text-sm uppercase">Industrial &amp; Manufacturing</span>
+        <span class="text-royal-300/40">◆</span>
+      </div>
+      <div class="flex items-center gap-16 pr-16" aria-hidden="true">
+        <span class="text-royal-100/60 font-semibold tracking-[0.15em] text-sm uppercase">Corporate &amp; Commercial</span>
+        <span class="text-royal-300/40">◆</span>
+        <span class="text-royal-100/60 font-semibold tracking-[0.15em] text-sm uppercase">Government &amp; Diplomatic</span>
+        <span class="text-royal-300/40">◆</span>
+        <span class="text-royal-100/60 font-semibold tracking-[0.15em] text-sm uppercase">Residential Estates</span>
+        <span class="text-royal-300/40">◆</span>
+        <span class="text-royal-100/60 font-semibold tracking-[0.15em] text-sm uppercase">Oil &amp; Gas</span>
+        <span class="text-royal-300/40">◆</span>
+        <span class="text-royal-100/60 font-semibold tracking-[0.15em] text-sm uppercase">Banking &amp; Finance</span>
+        <span class="text-royal-300/40">◆</span>
+        <span class="text-royal-100/60 font-semibold tracking-[0.15em] text-sm uppercase">Retail &amp; Hospitality</span>
+        <span class="text-royal-300/40">◆</span>
+        <span class="text-royal-100/60 font-semibold tracking-[0.15em] text-sm uppercase">Events &amp; Entertainment</span>
+        <span class="text-royal-300/40">◆</span>
+        <span class="text-royal-100/60 font-semibold tracking-[0.15em] text-sm uppercase">Industrial &amp; Manufacturing</span>
+        <span class="text-royal-300/40">◆</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT / MISSION ============ -->
+  <section id="about" class="relative bg-light-gray bg-[#F2F4F7] py-28 lg:py-36 overflow-hidden">
+    <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-royal-100 opacity-60 blur-3xl"></div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 relative">
+      <div class="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+        <div>
+          <div class="reveal flex items-center gap-3 mb-6">
+            <span class="w-10 h-[2px] bg-royal-500"></span>
+            <span class="text-royal-600 font-bold text-sm tracking-[0.2em] uppercase">Our Mission</span>
+          </div>
+          <h2 class="reveal font-display font-extrabold text-4xl sm:text-5xl tracking-[-0.03em] text-navy-800 leading-[1.1] text-balance">
+            To deliver reliable, professional, and innovative security solutions.
+          </h2>
+          <p class="reveal reveal-delay-1 mt-6 text-navy-700/80 text-lg leading-[1.7]">
+            Every deployment, patrol route, and monitored camera exists for one purpose: protecting the people, assets, and peace of mind our clients entrust to us. From corporate headquarters in Abuja to residential estates and industrial sites nationwide, Rayam Security Limited brings discipline, technology, and vigilance to every assignment.
+          </p>
+
+          <div class="mt-12 grid sm:grid-cols-3 gap-5">
+            <div class="reveal reveal-delay-1 lift bg-white rounded-2xl p-6 shadow-navy-md">
+              <div class="w-12 h-12 rounded-xl bg-navy-800 flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-royal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+              </div>
+              <h3 class="font-display font-bold text-lg text-navy-800">Integrity</h3>
+              <p class="text-sm text-navy-700/70 mt-2 leading-relaxed">We act with honesty and transparency.</p>
+            </div>
+            <div class="reveal reveal-delay-2 lift bg-white rounded-2xl p-6 shadow-navy-md">
+              <div class="w-12 h-12 rounded-xl bg-navy-800 flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-royal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+              </div>
+              <h3 class="font-display font-bold text-lg text-navy-800">Professionalism</h3>
+              <p class="text-sm text-navy-700/70 mt-2 leading-relaxed">We uphold the highest standards in all we do.</p>
+            </div>
+            <div class="reveal reveal-delay-3 lift bg-white rounded-2xl p-6 shadow-navy-md">
+              <div class="w-12 h-12 rounded-xl bg-navy-800 flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-royal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18zM8.25 9.75l1.5 1.5 6-6"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z"/></svg>
+              </div>
+              <h3 class="font-display font-bold text-lg text-navy-800">Reliability</h3>
+              <p class="text-sm text-navy-700/70 mt-2 leading-relaxed">We are dependable, vigilant, and trusted.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal reveal-delay-2 relative">
+          <div class="relative rounded-[2rem] overflow-hidden shadow-navy-lg aspect-[4/5]">
+            <img src="images/zenith-bank-final.jpg" alt="Modern corporate bank headquarters in Nigeria protected by Rayam Security" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950/70 via-navy-950/10 to-transparent"></div>
+            <div class="absolute inset-0 bg-royal-600/10 mix-blend-multiply"></div>
+          </div>
+          <div class="absolute bottom-4 left-4 right-4 sm:right-auto sm:bottom-8 sm:left-8 lg:-bottom-8 lg:-left-8 glass-light rounded-2xl p-6 shadow-navy-lg w-auto sm:w-56">
+            <p class="font-display font-extrabold text-3xl text-navy-800">12<span class="text-royal-500">+</span></p>
+            <p class="text-xs font-bold tracking-wide text-navy-700/70 mt-1 uppercase">Years Protecting Nigerian Businesses</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ANIMATED STATS BAND ============ -->
+  <section class="relative bg-navy-950 grain py-20 overflow-hidden">
+    <div class="absolute inset-0 bg-panel-gradient"></div>
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+        <div class="reveal text-center lg:border-r lg:border-white/10">
+          <p class="font-display font-extrabold text-5xl lg:text-6xl text-white"><span class="counter" data-target="12">0</span>+</p>
+          <p class="mt-3 text-royal-100/70 text-sm font-semibold tracking-wide uppercase">Years of Operation</p>
+        </div>
+        <div class="reveal reveal-delay-1 text-center lg:border-r lg:border-white/10">
+          <p class="font-display font-extrabold text-5xl lg:text-6xl text-white"><span class="counter" data-target="500">0</span>+</p>
+          <p class="mt-3 text-royal-100/70 text-sm font-semibold tracking-wide uppercase">Officers Deployed</p>
+        </div>
+        <div class="reveal reveal-delay-2 text-center lg:border-r lg:border-white/10">
+          <p class="font-display font-extrabold text-5xl lg:text-6xl text-white"><span class="counter" data-target="300">0</span>+</p>
+          <p class="mt-3 text-royal-100/70 text-sm font-semibold tracking-wide uppercase">Clients Protected</p>
+        </div>
+        <div class="reveal reveal-delay-3 text-center">
+          <p class="font-display font-extrabold text-5xl lg:text-6xl text-white"><span class="counter" data-target="24">0</span>/7</p>
+          <p class="mt-3 text-royal-100/70 text-sm font-semibold tracking-wide uppercase">Command Center Monitoring</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section id="services" class="bg-[#F2F4F7] py-28 lg:py-36">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="max-w-2xl mx-auto text-center mb-16">
+        <div class="reveal flex items-center justify-center gap-3 mb-6">
+          <span class="w-10 h-[2px] bg-royal-500"></span>
+          <span class="text-royal-600 font-bold text-sm tracking-[0.2em] uppercase">What We Do</span>
+          <span class="w-10 h-[2px] bg-royal-500"></span>
+        </div>
+        <h2 class="reveal reveal-delay-1 font-display font-extrabold text-4xl sm:text-5xl tracking-[-0.03em] text-navy-800 text-balance">Comprehensive Security Solutions</h2>
+        <p class="reveal reveal-delay-2 mt-5 text-navy-700/70 text-lg leading-[1.7]">Tailored protection services built around your risk profile, delivered by vetted professionals and backed by modern technology.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Card 1 -->
+        <div class="reveal lift group bg-white rounded-2xl p-7 shadow-navy-md hover:shadow-navy-lg">
+          <div class="w-14 h-14 rounded-2xl bg-navy-800 flex items-center justify-center mb-6 transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-105">
+            <svg class="w-7 h-7 text-royal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-navy-800">Manned Guarding</h3>
+          <p class="mt-3 text-sm text-navy-700/70 leading-relaxed">Vetted, trained officers stationed at your premises around the clock.</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="reveal reveal-delay-1 lift group bg-white rounded-2xl p-7 shadow-navy-md hover:shadow-navy-lg">
+          <div class="w-14 h-14 rounded-2xl bg-navy-800 flex items-center justify-center mb-6 transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-105">
+            <svg class="w-7 h-7 text-royal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.02.75.75 0 00-.62-.327H16.5m0 0V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V14.25m13.5 0V9.375m0 0h-1.5m1.5 0h4.28"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-navy-800">Mobile Patrol &amp; Escort</h3>
+          <p class="mt-3 text-sm text-navy-700/70 leading-relaxed">GPS-tracked patrol vehicles providing rapid response and route escorts.</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="reveal reveal-delay-2 lift group bg-white rounded-2xl p-7 shadow-navy-md hover:shadow-navy-lg">
+          <div class="w-14 h-14 rounded-2xl bg-navy-800 flex items-center justify-center mb-6 transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-105">
+            <svg class="w-7 h-7 text-royal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-navy-800">CCTV &amp; Surveillance</h3>
+          <p class="mt-3 text-sm text-navy-700/70 leading-relaxed">Advanced camera systems monitored in real time by our command center.</p>
+        </div>
+        <!-- Card 4 -->
+        <div class="reveal reveal-delay-3 lift group bg-white rounded-2xl p-7 shadow-navy-md hover:shadow-navy-lg">
+          <div class="w-14 h-14 rounded-2xl bg-navy-800 flex items-center justify-center mb-6 transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-105">
+            <svg class="w-7 h-7 text-royal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-navy-800">24/7 Command Center</h3>
+          <p class="mt-3 text-sm text-navy-700/70 leading-relaxed">Centralized monitoring, dispatch, and incident response from Abuja.</p>
+        </div>
+        <!-- Card 5 -->
+        <div class="reveal lift group bg-white rounded-2xl p-7 shadow-navy-md hover:shadow-navy-lg">
+          <div class="w-14 h-14 rounded-2xl bg-navy-800 flex items-center justify-center mb-6 transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-105">
+            <svg class="w-7 h-7 text-royal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4c.414 0 .75-.336.75-.75 0-.231-.035-.454-.1-.664m-5.3 0a2.251 2.251 0 114.3 0m-5.3 0a2.25 2.25 0 00-1.883 1.153L3.415 9.14a2.25 2.25 0 000 2.14L5.867 15.5a2.25 2.25 0 001.883 1.153m5.3-12.816a2.25 2.25 0 011.883 1.153l2.452 4.19a2.25 2.25 0 010 2.14l-2.452 4.19a2.25 2.25 0 01-1.883 1.153m-5.3 0h5.3"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-navy-800">Event &amp; VIP Security</h3>
+          <p class="mt-3 text-sm text-navy-700/70 leading-relaxed">Discreet, professional coverage for corporate events and high-profile guests.</p>
+        </div>
+        <!-- Card 6 -->
+        <div class="reveal reveal-delay-1 lift group bg-white rounded-2xl p-7 shadow-navy-md hover:shadow-navy-lg">
+          <div class="w-14 h-14 rounded-2xl bg-navy-800 flex items-center justify-center mb-6 transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-105">
+            <svg class="w-7 h-7 text-royal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-navy-800">Executive Protection</h3>
+          <p class="mt-3 text-sm text-navy-700/70 leading-relaxed">Trained personal protection officers for executives and dignitaries.</p>
+        </div>
+        <!-- Card 7 -->
+        <div class="reveal reveal-delay-2 lift group bg-white rounded-2xl p-7 shadow-navy-md hover:shadow-navy-lg">
+          <div class="w-14 h-14 rounded-2xl bg-navy-800 flex items-center justify-center mb-6 transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-105">
+            <svg class="w-7 h-7 text-royal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5V6.75a4.5 4.5 0 119 0v3.75M3.75 21.75h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H3.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-navy-800">Access Control</h3>
+          <p class="mt-3 text-sm text-navy-700/70 leading-relaxed">Visitor management, ID verification, and perimeter access solutions.</p>
+        </div>
+        <!-- Card 8 -->
+        <div class="reveal reveal-delay-3 lift group bg-white rounded-2xl p-7 shadow-navy-md hover:shadow-navy-lg">
+          <div class="w-14 h-14 rounded-2xl bg-navy-800 flex items-center justify-center mb-6 transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-105">
+            <svg class="w-7 h-7 text-royal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-navy-800">Corporate &amp; Industrial</h3>
+          <p class="mt-3 text-sm text-navy-700/70 leading-relaxed">Tailored protection for offices, factories, and critical infrastructure.</p>
+        </div>
+        <!-- Card 9 -->
+        <div class="reveal lift group bg-white rounded-2xl p-7 shadow-navy-md hover:shadow-navy-lg">
+          <div class="w-14 h-14 rounded-2xl bg-navy-800 flex items-center justify-center mb-6 transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-105">
+            <svg class="w-7 h-7 text-royal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6">
+              <circle cx="12" cy="5" r="2.25"/>
+              <path stroke-linecap="round" d="M12 7.25V21M8.5 9h7M4 13c0 4.5 3.5 7.5 8 8 4.5-.5 8-3.5 8-8"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-navy-800">Port &amp; Terminal Security</h3>
+          <p class="mt-3 text-sm text-navy-700/70 leading-relaxed">Cargo, perimeter, and access control for ports, terminals, and jetties.</p>
+        </div>
+        <!-- Card 10 -->
+        <div class="reveal reveal-delay-1 lift group bg-white rounded-2xl p-7 shadow-navy-md hover:shadow-navy-lg">
+          <div class="w-14 h-14 rounded-2xl bg-navy-800 flex items-center justify-center mb-6 transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-105">
+            <svg class="w-7 h-7 text-royal-300" viewBox="0 0 24 24" fill="currentColor">
+              <ellipse cx="12" cy="15.5" rx="5" ry="4"/>
+              <ellipse cx="5.5" cy="9" rx="2.2" ry="2.8" transform="rotate(-20 5.5 9)"/>
+              <ellipse cx="10" cy="6" rx="2.2" ry="2.8" transform="rotate(-8 10 6)"/>
+              <ellipse cx="14.5" cy="6" rx="2.2" ry="2.8" transform="rotate(8 14.5 6)"/>
+              <ellipse cx="18.5" cy="9" rx="2.2" ry="2.8" transform="rotate(20 18.5 9)"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-navy-800">K9 Unit Patrol</h3>
+          <p class="mt-3 text-sm text-navy-700/70 leading-relaxed">Trained canine teams for explosive, narcotics, and perimeter detection.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TECHNOLOGY / COMMAND CENTER ============ -->
+  <section id="technology" class="relative bg-navy-950 grain py-28 lg:py-36 overflow-hidden">
+    <div class="absolute inset-0 bg-panel-gradient"></div>
+    <div class="absolute top-1/3 -right-40 w-[32rem] h-[32rem] rounded-full bg-royal-500/10 blur-3xl"></div>
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <div class="reveal flex items-center gap-3 mb-6">
+            <span class="w-10 h-[2px] bg-royal-400"></span>
+            <span class="text-royal-300 font-bold text-sm tracking-[0.2em] uppercase">Our Technology</span>
+          </div>
+          <h2 class="reveal reveal-delay-1 font-display font-extrabold text-4xl sm:text-5xl tracking-[-0.03em] text-white text-balance">A Command Center That Never Sleeps</h2>
+          <p class="reveal reveal-delay-2 mt-6 text-royal-50/75 text-lg leading-[1.7]">
+            Every camera feed, patrol check-in, and alarm signal converges on our Abuja-based command center. Trained dispatch operators monitor live footage, track patrol vehicles by GPS, and coordinate rapid response — twenty-four hours a day, every day of the year.
+          </p>
+          <ul class="mt-8 space-y-4">
+            <li class="reveal reveal-delay-3 flex items-start gap-3">
+              <svg class="w-6 h-6 text-royal-300 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path class="dash-draw" stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span class="text-white/85 font-medium">Real-time CCTV monitoring across all client sites</span>
+            </li>
+            <li class="reveal reveal-delay-4 flex items-start gap-3">
+              <svg class="w-6 h-6 text-royal-300 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path class="dash-draw" stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span class="text-white/85 font-medium">GPS fleet tracking for every patrol vehicle</span>
+            </li>
+            <li class="reveal flex items-start gap-3">
+              <svg class="w-6 h-6 text-royal-300 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path class="dash-draw" stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span class="text-white/85 font-medium">Instant incident escalation and dispatch</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Live dashboard mock UI -->
+        <div class="reveal reveal-delay-2 relative">
+          <div class="glass rounded-[1.75rem] p-5 shadow-glow">
+            <div class="flex items-center justify-between mb-4 px-2">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-royal-300 pulse-dot"></span>
+                <span class="text-white text-xs font-bold tracking-widest uppercase">Live Monitoring — Abuja HQ</span>
+              </div>
+              <span class="text-royal-200/70 text-[11px] font-mono">CAM · 08 ACTIVE</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div class="cam-tile relative rounded-xl overflow-hidden aspect-video">
+                <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=600&q=70&auto=format&fit=crop" class="w-full h-full object-cover duotone-navy" alt="CCTV camera array feed" />
+                <div class="absolute inset-0 bg-navy-900/30"></div>
+                <span class="absolute top-2 left-2 text-[10px] font-mono text-royal-200 bg-navy-950/60 px-1.5 py-0.5 rounded">GATE-01</span>
+                <span class="absolute bottom-2 right-2 w-1.5 h-1.5 rounded-full bg-red-400 pulse-dot"></span>
+              </div>
+              <div class="cam-tile relative rounded-xl overflow-hidden aspect-video">
+                <img src="images/cctv-camera.jpg" class="w-full h-full object-cover duotone-navy" alt="Perimeter surveillance camera" />
+                <div class="absolute inset-0 bg-navy-900/30"></div>
+                <span class="absolute top-2 left-2 text-[10px] font-mono text-royal-200 bg-navy-950/60 px-1.5 py-0.5 rounded">PERIM-04</span>
+                <span class="absolute bottom-2 right-2 w-1.5 h-1.5 rounded-full bg-royal-300 pulse-dot"></span>
+              </div>
+              <div class="cam-tile relative rounded-xl overflow-hidden aspect-video">
+                <img src="images/patrol-suv.jpg" class="w-full h-full object-cover duotone-navy" alt="Patrol vehicle live feed" />
+                <div class="absolute inset-0 bg-navy-900/30"></div>
+                <span class="absolute top-2 left-2 text-[10px] font-mono text-royal-200 bg-navy-950/60 px-1.5 py-0.5 rounded">PATROL-12</span>
+                <span class="absolute bottom-2 right-2 w-1.5 h-1.5 rounded-full bg-royal-300 pulse-dot"></span>
+              </div>
+              <div class="cam-tile relative rounded-xl overflow-hidden aspect-video bg-navy-800 flex items-center justify-center">
+                <svg class="w-10 h-10 text-royal-400/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.159.69.159 1.006 0z"/></svg>
+                <span class="absolute top-2 left-2 text-[10px] font-mono text-royal-200 bg-navy-950/60 px-1.5 py-0.5 rounded">MAP VIEW</span>
+              </div>
+            </div>
+            <div class="mt-4 grid grid-cols-3 gap-3">
+              <div class="bg-white/5 rounded-lg px-3 py-2.5 text-center">
+                <p class="text-white font-display font-bold text-lg">08</p>
+                <p class="text-[9px] text-royal-200/60 uppercase tracking-wide">Sites Live</p>
+              </div>
+              <div class="bg-white/5 rounded-lg px-3 py-2.5 text-center">
+                <p class="text-white font-display font-bold text-lg">02:14</p>
+                <p class="text-[9px] text-royal-200/60 uppercase tracking-wide">Avg Response</p>
+              </div>
+              <div class="bg-white/5 rounded-lg px-3 py-2.5 text-center">
+                <p class="text-white font-display font-bold text-lg">100%</p>
+                <p class="text-[9px] text-royal-200/60 uppercase tracking-wide">Uptime</p>
+              </div>
+            </div>
+          </div>
+          <div class="absolute -z-10 -bottom-6 -right-6 w-full h-full rounded-[1.75rem] border border-royal-400/20"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PATROL FLEET ============ -->
+  <section class="bg-white py-28 lg:py-36">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal order-2 lg:order-1 relative">
+          <div class="relative rounded-[2rem] overflow-hidden shadow-navy-lg aspect-[4/5]">
+            <img src="images/patrol-suv.jpg" alt="Rayam Security marked patrol vehicle" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950/75 via-navy-950/10 to-transparent"></div>
+            <div class="absolute inset-0 bg-royal-600/10 mix-blend-multiply"></div>
+            <div class="absolute bottom-6 left-6 right-6 glass rounded-xl px-5 py-4 flex items-center gap-3">
+              <span class="w-2.5 h-2.5 rounded-full bg-royal-300 pulse-dot shrink-0"></span>
+              <p class="text-white text-sm font-semibold">Unit 12 — En route, ETA 4 min</p>
+            </div>
+          </div>
+        </div>
+        <div class="order-1 lg:order-2">
+          <div class="reveal flex items-center gap-3 mb-6">
+            <span class="w-10 h-[2px] bg-royal-500"></span>
+            <span class="text-royal-600 font-bold text-sm tracking-[0.2em] uppercase">Mobile Patrol Fleet</span>
+          </div>
+          <h2 class="reveal reveal-delay-1 font-display font-extrabold text-4xl sm:text-5xl tracking-[-0.03em] text-navy-800 text-balance">Rapid Response, Wherever You Are</h2>
+          <p class="reveal reveal-delay-2 mt-6 text-navy-700/80 text-lg leading-[1.7]">Our GPS-tracked fleet of patrol vehicles delivers scheduled checks, route escorts, and emergency response across Abuja and beyond — dispatched directly from our command center the moment an alert is raised.</p>
+          <div class="mt-8 grid sm:grid-cols-2 gap-5">
+            <div class="reveal reveal-delay-3 flex items-start gap-3">
+              <div class="w-9 h-9 rounded-lg bg-royal-100 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-royal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+              </div>
+              <div>
+                <p class="font-bold text-navy-800 text-sm">GPS-Tracked Fleet</p>
+                <p class="text-xs text-navy-700/60 mt-1">Live vehicle location at all times</p>
+              </div>
+            </div>
+            <div class="reveal reveal-delay-4 flex items-start gap-3">
+              <div class="w-9 h-9 rounded-lg bg-royal-100 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-royal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div>
+                <p class="font-bold text-navy-800 text-sm">Rapid Response</p>
+                <p class="text-xs text-navy-700/60 mt-1">Average dispatch under 10 minutes</p>
+              </div>
+            </div>
+            <div class="reveal flex items-start gap-3">
+              <div class="w-9 h-9 rounded-lg bg-royal-100 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-royal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M18 22.5V3.75m0 0L15 6.75m3-3L21 6.75"/></svg>
+              </div>
+              <div>
+                <p class="font-bold text-navy-800 text-sm">Marked &amp; Unmarked</p>
+                <p class="text-xs text-navy-700/60 mt-1">Deterrent or discreet, as required</p>
+              </div>
+            </div>
+            <div class="reveal reveal-delay-1 flex items-start gap-3">
+              <div class="w-9 h-9 rounded-lg bg-royal-100 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-royal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/></svg>
+              </div>
+              <div>
+                <p class="font-bold text-navy-800 text-sm">Trained Drivers</p>
+                <p class="text-xs text-navy-700/60 mt-1">Certified in defensive &amp; evasive driving</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PORT & K9 SECURITY ============ -->
+  <section class="relative bg-navy-950 grain py-28 lg:py-36 overflow-hidden">
+    <div class="absolute inset-0 bg-panel-gradient"></div>
+    <div class="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-royal-500/10 blur-3xl"></div>
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal relative">
+          <div class="relative rounded-[2rem] overflow-hidden shadow-navy-lg aspect-[4/5]">
+            <img src="images/port-apapa-full.jpg" alt="Container terminal at Apapa Port, Lagos, Nigeria" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-navy-950/10 to-transparent"></div>
+            <div class="absolute inset-0 bg-royal-600/10 mix-blend-multiply"></div>
+            <div class="absolute bottom-6 left-6 right-6 glass rounded-xl px-5 py-4 flex items-center gap-3">
+              <span class="w-2.5 h-2.5 rounded-full bg-royal-300 pulse-dot shrink-0"></span>
+              <p class="text-white text-sm font-semibold">Apapa Port, Lagos — cargo terminal coverage</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="reveal flex items-center gap-3 mb-6">
+            <span class="w-10 h-[2px] bg-royal-400"></span>
+            <span class="text-royal-300 font-bold text-sm tracking-[0.2em] uppercase">Port &amp; K9 Security</span>
+          </div>
+          <h2 class="reveal reveal-delay-1 font-display font-extrabold text-4xl sm:text-5xl tracking-[-0.03em] text-white text-balance">Securing Nigeria's Ports &amp; Terminals</h2>
+          <p class="reveal reveal-delay-2 mt-6 text-royal-50/75 text-lg leading-[1.7]">From container terminals to jetties and cargo yards, we combine trained officers, K9 detection teams, and access control to protect high-value logistics operations around the clock.</p>
+          <div class="mt-8 grid sm:grid-cols-2 gap-5">
+            <div class="reveal reveal-delay-3 flex items-start gap-3">
+              <div class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-royal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                  <circle cx="12" cy="5" r="2.25"/>
+                  <path stroke-linecap="round" d="M12 7.25V21M8.5 9h7M4 13c0 4.5 3.5 7.5 8 8 4.5-.5 8-3.5 8-8"/>
+                </svg>
+              </div>
+              <div>
+                <p class="font-bold text-white text-sm">Cargo &amp; Terminal Access</p>
+                <p class="text-xs text-white/60 mt-1">Controlled entry for freight and personnel</p>
+              </div>
+            </div>
+            <div class="reveal reveal-delay-4 flex items-start gap-3">
+              <div class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-royal-300" viewBox="0 0 24 24" fill="currentColor">
+                  <ellipse cx="12" cy="15.5" rx="5" ry="4"/>
+                  <ellipse cx="5.5" cy="9" rx="2.2" ry="2.8" transform="rotate(-20 5.5 9)"/>
+                  <ellipse cx="10" cy="6" rx="2.2" ry="2.8" transform="rotate(-8 10 6)"/>
+                  <ellipse cx="14.5" cy="6" rx="2.2" ry="2.8" transform="rotate(8 14.5 6)"/>
+                  <ellipse cx="18.5" cy="9" rx="2.2" ry="2.8" transform="rotate(20 18.5 9)"/>
+                </svg>
+              </div>
+              <div>
+                <p class="font-bold text-white text-sm">K9 Detection Teams</p>
+                <p class="text-xs text-white/60 mt-1">Explosive, narcotics &amp; contraband screening</p>
+              </div>
+            </div>
+            <div class="reveal flex items-start gap-3">
+              <div class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-royal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+              </div>
+              <div>
+                <p class="font-bold text-white text-sm">Perimeter &amp; Berth Patrol</p>
+                <p class="text-xs text-white/60 mt-1">Continuous rounds along quaysides and fencing</p>
+              </div>
+            </div>
+            <div class="reveal reveal-delay-1 flex items-start gap-3">
+              <div class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-royal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div>
+                <p class="font-bold text-white text-sm">Customs &amp; Logistics Liaison</p>
+                <p class="text-xs text-white/60 mt-1">Coordinated handovers with port authorities</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROCESS ============ -->
+  <section class="bg-[#F2F4F7] py-28 lg:py-36">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="max-w-2xl mx-auto text-center mb-20">
+        <div class="reveal flex items-center justify-center gap-3 mb-6">
+          <span class="w-10 h-[2px] bg-royal-500"></span>
+          <span class="text-royal-600 font-bold text-sm tracking-[0.2em] uppercase">How We Work</span>
+          <span class="w-10 h-[2px] bg-royal-500"></span>
+        </div>
+        <h2 class="reveal reveal-delay-1 font-display font-extrabold text-4xl sm:text-5xl tracking-[-0.03em] text-navy-800 text-balance">From Assessment to Ongoing Protection</h2>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-8 relative">
+        <div class="hidden md:block absolute top-8 left-[12.5%] right-[12.5%] h-[2px] bg-gradient-to-r from-royal-300 via-royal-500 to-royal-300"></div>
+        <div class="reveal relative text-center">
+          <div class="relative z-10 mx-auto w-16 h-16 rounded-full bg-navy-800 text-white font-display font-extrabold text-xl flex items-center justify-center shadow-navy-md">01</div>
+          <h3 class="mt-6 font-display font-bold text-lg text-navy-800">Consultation &amp; Assessment</h3>
+          <p class="mt-2 text-sm text-navy-700/70 leading-relaxed">We evaluate your site, risks, and specific security needs.</p>
+        </div>
+        <div class="reveal reveal-delay-1 relative text-center">
+          <div class="relative z-10 mx-auto w-16 h-16 rounded-full bg-navy-800 text-white font-display font-extrabold text-xl flex items-center justify-center shadow-navy-md">02</div>
+          <h3 class="mt-6 font-display font-bold text-lg text-navy-800">Custom Security Plan</h3>
+          <p class="mt-2 text-sm text-navy-700/70 leading-relaxed">A tailored protection strategy, resourced and costed for you.</p>
+        </div>
+        <div class="reveal reveal-delay-2 relative text-center">
+          <div class="relative z-10 mx-auto w-16 h-16 rounded-full bg-navy-800 text-white font-display font-extrabold text-xl flex items-center justify-center shadow-navy-md">03</div>
+          <h3 class="mt-6 font-display font-bold text-lg text-navy-800">Deployment &amp; Training</h3>
+          <p class="mt-2 text-sm text-navy-700/70 leading-relaxed">Vetted officers are deployed, briefed, and site-trained.</p>
+        </div>
+        <div class="reveal reveal-delay-3 relative text-center">
+          <div class="relative z-10 mx-auto w-16 h-16 rounded-full bg-navy-800 text-white font-display font-extrabold text-xl flex items-center justify-center shadow-navy-md">04</div>
+          <h3 class="mt-6 font-display font-bold text-lg text-navy-800">Monitoring &amp; Review</h3>
+          <p class="mt-2 text-sm text-navy-700/70 leading-relaxed">Continuous oversight, reporting, and regular service review.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY US ============ -->
+  <section id="why-us" class="bg-white py-28 lg:py-36">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal relative order-2 lg:order-1">
+          <div class="relative rounded-[2rem] overflow-hidden shadow-navy-lg aspect-square">
+            <img src="images/officer-portrait-ng-final.jpg" alt="Rayam Security uniformed officer on duty" class="w-full h-full object-cover duotone-navy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-navy-900/20 to-navy-900/10"></div>
+            <div class="absolute inset-0 bg-royal-700/20 mix-blend-multiply"></div>
+            <div class="absolute bottom-6 left-6 right-6">
+              <p class="text-white font-display font-bold text-xl">Officer O. Adeyemi</p>
+              <p class="text-royal-200 text-xs font-semibold tracking-wide uppercase mt-1">Site Supervisor · 6 Years of Service</p>
+            </div>
+          </div>
+          <div class="absolute top-4 right-4 sm:top-6 sm:right-6 lg:-top-6 lg:-right-6 glass-light rounded-2xl px-6 py-5 shadow-navy-lg">
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-royal-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.9 6.26L21 9.27l-4.5 4.38L17.8 21 12 17.77 6.2 21l1.3-7.35L3 9.27l6.1-1.01L12 2z"/></svg>
+              <p class="font-display font-extrabold text-navy-800">4.9/5</p>
+            </div>
+            <p class="text-[11px] text-navy-700/60 mt-1">Average client rating</p>
+          </div>
+        </div>
+
+        <div class="order-1 lg:order-2">
+          <div class="reveal flex items-center gap-3 mb-6">
+            <span class="w-10 h-[2px] bg-royal-500"></span>
+            <span class="text-royal-600 font-bold text-sm tracking-[0.2em] uppercase">Why Choose Rayam</span>
+          </div>
+          <h2 class="reveal reveal-delay-1 font-display font-extrabold text-4xl sm:text-5xl tracking-[-0.03em] text-navy-800 text-balance">Trusted Protection, Backed by Standards</h2>
+
+          <div class="mt-10 space-y-6">
+            <div class="reveal reveal-delay-2 flex gap-4">
+              <div class="w-11 h-11 rounded-xl bg-navy-800 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-royal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-navy-800">Licensed &amp; Fully Compliant</h3>
+                <p class="text-sm text-navy-700/70 mt-1 leading-relaxed">Operating in full accordance with Nigerian private security regulations.</p>
+              </div>
+            </div>
+            <div class="reveal reveal-delay-3 flex gap-4">
+              <div class="w-11 h-11 rounded-xl bg-navy-800 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-royal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M4.501 20.118a7.5 7.5 0 0114.998 0M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-navy-800">Rigorously Vetted Officers</h3>
+                <p class="text-sm text-navy-700/70 mt-1 leading-relaxed">Background-checked, trained, and supervised professionals.</p>
+              </div>
+            </div>
+            <div class="reveal reveal-delay-4 flex gap-4">
+              <div class="w-11 h-11 rounded-xl bg-navy-800 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-royal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.02.75.75 0 00-.62-.327H16.5V4.875C16.5 4.254 15.996 3.75 15.375 3.75H4.125C3.504 3.75 3 4.254 3 4.875V14.25m13.5 0V9.375m0 0h-1.5m1.5 0h4.28"/></svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-navy-800">Modern Fleet &amp; Equipment</h3>
+                <p class="text-sm text-navy-700/70 mt-1 leading-relaxed">GPS-tracked vehicles and current-generation surveillance technology.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="relative bg-navy-950 grain py-28 lg:py-36 overflow-hidden">
+    <div class="absolute inset-0 bg-panel-gradient"></div>
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="max-w-2xl mx-auto text-center mb-16">
+        <div class="reveal flex items-center justify-center gap-3 mb-6">
+          <span class="w-10 h-[2px] bg-royal-400"></span>
+          <span class="text-royal-300 font-bold text-sm tracking-[0.2em] uppercase">Client Trust</span>
+          <span class="w-10 h-[2px] bg-royal-400"></span>
+        </div>
+        <h2 class="reveal reveal-delay-1 font-display font-extrabold text-4xl sm:text-5xl tracking-[-0.03em] text-white text-balance">What Our Clients Say</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="reveal glass rounded-2xl p-8 lift">
+          <svg class="w-8 h-8 text-royal-400/60 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M7.17 6A5.17 5.17 0 002 11.17V18h6.83v-6.83H4.83c0-1.75 1.42-3.17 3.17-3.17V6zm11 0A5.17 5.17 0 0013 11.17V18h6.83v-6.83h-4.66c0-1.75 1.42-3.17 3.17-3.17V6z"/></svg>
+          <p class="text-white/85 leading-[1.7]">"Rayam Security transformed how we think about protection. Their command center flagged an issue before we even knew there was one."</p>
+          <div class="mt-6 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-royal-500/30 flex items-center justify-center text-white font-bold text-sm">FD</div>
+            <div>
+              <p class="text-white font-semibold text-sm">Facilities Director</p>
+              <p class="text-royal-200/60 text-xs">Corporate Client, Abuja</p>
+            </div>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-1 glass rounded-2xl p-8 lift">
+          <svg class="w-8 h-8 text-royal-400/60 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M7.17 6A5.17 5.17 0 002 11.17V18h6.83v-6.83H4.83c0-1.75 1.42-3.17 3.17-3.17V6zm11 0A5.17 5.17 0 0013 11.17V18h6.83v-6.83h-4.66c0-1.75 1.42-3.17 3.17-3.17V6z"/></svg>
+          <p class="text-white/85 leading-[1.7]">"Professional, punctual, and always vigilant. Our estate has never felt safer since we partnered with Rayam."</p>
+          <div class="mt-6 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-royal-500/30 flex items-center justify-center text-white font-bold text-sm">EM</div>
+            <div>
+              <p class="text-white font-semibold text-sm">Estate Management Committee</p>
+              <p class="text-royal-200/60 text-xs">Residential Client, Abuja</p>
+            </div>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2 glass rounded-2xl p-8 lift">
+          <svg class="w-8 h-8 text-royal-400/60 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M7.17 6A5.17 5.17 0 002 11.17V18h6.83v-6.83H4.83c0-1.75 1.42-3.17 3.17-3.17V6zm11 0A5.17 5.17 0 0013 11.17V18h6.83v-6.83h-4.66c0-1.75 1.42-3.17 3.17-3.17V6z"/></svg>
+          <p class="text-white/85 leading-[1.7]">"From risk assessment to deployment, the process was seamless. A true security partner, not just a vendor."</p>
+          <div class="mt-6 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-royal-500/30 flex items-center justify-center text-white font-bold text-sm">OM</div>
+            <div>
+              <p class="text-white font-semibold text-sm">Operations Manager</p>
+              <p class="text-royal-200/60 text-xs">Manufacturing Client</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA BANNER ============ -->
+  <section class="relative bg-cta-gradient grain py-24 overflow-hidden">
+    <div class="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-royal-500/20 blur-3xl"></div>
+    <div class="relative max-w-4xl mx-auto px-6 text-center">
+      <h2 class="reveal font-display font-extrabold text-4xl sm:text-5xl text-white tracking-[-0.03em] text-balance">Ready to Protect What Matters Most?</h2>
+      <p class="reveal reveal-delay-1 mt-5 text-royal-50/80 text-lg leading-[1.7] max-w-2xl mx-auto">Speak with our security consultants today and receive a tailored protection plan for your organization, estate, or event.</p>
+      <div class="reveal reveal-delay-2 mt-9 flex flex-wrap items-center justify-center gap-4">
+        <a href="#contact" class="btn-spring inline-flex items-center gap-2 bg-royal-500 hover:bg-royal-400 text-white font-bold text-base px-8 py-4 rounded-full shadow-navy-lg">Get a Free Consultation</a>
+        <a href="tel:+2348000072926" class="btn-spring inline-flex items-center gap-2 glass hover:bg-white/15 text-white font-bold text-base px-8 py-4 rounded-full">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h1.5a2.25 2.25 0 002.25-2.25v-1.372a1.5 1.5 0 00-1.128-1.453l-4.026-1.006a1.5 1.5 0 00-1.51.432l-.665.665a1.125 1.125 0 01-1.298.21 12.035 12.035 0 01-5.51-5.511 1.125 1.125 0 01.21-1.297l.665-.665a1.5 1.5 0 00.432-1.51L7.585 3.378a1.5 1.5 0 00-1.453-1.128H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+          +234 800 007 2926
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="bg-[#F2F4F7] py-28 lg:py-36">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="max-w-2xl mx-auto text-center mb-16">
+        <div class="reveal flex items-center justify-center gap-3 mb-6">
+          <span class="w-10 h-[2px] bg-royal-500"></span>
+          <span class="text-royal-600 font-bold text-sm tracking-[0.2em] uppercase">Get In Touch</span>
+          <span class="w-10 h-[2px] bg-royal-500"></span>
+        </div>
+        <h2 class="reveal reveal-delay-1 font-display font-extrabold text-4xl sm:text-5xl tracking-[-0.03em] text-navy-800 text-balance">Let's Discuss Your Security Needs</h2>
+      </div>
+
+      <div class="grid lg:grid-cols-5 gap-8">
+        <!-- Form -->
+        <form id="contact-form" class="reveal lg:col-span-3 bg-white rounded-[1.75rem] p-8 lg:p-10 shadow-navy-lg">
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs font-bold tracking-wide text-navy-700/70 uppercase mb-2" for="name">Full Name</label>
+              <input required id="name" type="text" placeholder="Your name" class="w-full rounded-xl border border-navy-800/10 bg-royal-50/60 px-4 py-3.5 text-sm text-navy-800 placeholder:text-navy-700/40 focus:border-royal-400 focus:ring-2 focus:ring-royal-200 transition-colors duration-300 outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold tracking-wide text-navy-700/70 uppercase mb-2" for="company">Company / Estate</label>
+              <input id="company" type="text" placeholder="Organization name" class="w-full rounded-xl border border-navy-800/10 bg-royal-50/60 px-4 py-3.5 text-sm text-navy-800 placeholder:text-navy-700/40 focus:border-royal-400 focus:ring-2 focus:ring-royal-200 transition-colors duration-300 outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold tracking-wide text-navy-700/70 uppercase mb-2" for="email">Email Address</label>
+              <input required id="email" type="email" placeholder="you@company.com" class="w-full rounded-xl border border-navy-800/10 bg-royal-50/60 px-4 py-3.5 text-sm text-navy-800 placeholder:text-navy-700/40 focus:border-royal-400 focus:ring-2 focus:ring-royal-200 transition-colors duration-300 outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold tracking-wide text-navy-700/70 uppercase mb-2" for="phone">Phone Number</label>
+              <input id="phone" type="tel" placeholder="+234" class="w-full rounded-xl border border-navy-800/10 bg-royal-50/60 px-4 py-3.5 text-sm text-navy-800 placeholder:text-navy-700/40 focus:border-royal-400 focus:ring-2 focus:ring-royal-200 transition-colors duration-300 outline-none" />
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-xs font-bold tracking-wide text-navy-700/70 uppercase mb-2" for="service">Service of Interest</label>
+              <select id="service" class="w-full rounded-xl border border-navy-800/10 bg-royal-50/60 px-4 py-3.5 text-sm text-navy-800 focus:border-royal-400 focus:ring-2 focus:ring-royal-200 transition-colors duration-300 outline-none">
+                <option>Manned Guarding</option>
+                <option>Mobile Patrol &amp; Escort</option>
+                <option>CCTV &amp; Surveillance</option>
+                <option>Event &amp; VIP Security</option>
+                <option>Executive Protection</option>
+                <option>Corporate &amp; Industrial Security</option>
+                <option>Port &amp; Terminal Security</option>
+                <option>K9 Unit Patrol</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-xs font-bold tracking-wide text-navy-700/70 uppercase mb-2" for="message">Message</label>
+              <textarea id="message" rows="4" placeholder="Tell us about your security requirements..." class="w-full rounded-xl border border-navy-800/10 bg-royal-50/60 px-4 py-3.5 text-sm text-navy-800 placeholder:text-navy-700/40 focus:border-royal-400 focus:ring-2 focus:ring-royal-200 transition-colors duration-300 outline-none resize-none"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn-spring mt-7 w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-royal-500 hover:bg-royal-400 text-white font-bold text-base px-8 py-4 rounded-full shadow-navy-md">
+            Submit Request
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>
+          </button>
+          <p id="form-success" class="hidden mt-4 text-sm font-semibold text-royal-600">Thank you — a member of our team will contact you within one business hour.</p>
+        </form>
+
+        <!-- Info + Map -->
+        <div class="lg:col-span-2 flex flex-col gap-6">
+          <div class="reveal reveal-delay-1 bg-navy-800 rounded-[1.75rem] p-7 text-white space-y-5">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-royal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+              </div>
+              <div>
+                <p class="font-bold text-sm">Headquarters</p>
+                <p class="text-white/70 text-sm mt-1 leading-relaxed">No. 2 Ahmadu Ali Crescent,<br />Utako, Abuja, Nigeria</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-royal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h1.5a2.25 2.25 0 002.25-2.25v-1.372a1.5 1.5 0 00-1.128-1.453l-4.026-1.006a1.5 1.5 0 00-1.51.432l-.665.665a1.125 1.125 0 01-1.298.21 12.035 12.035 0 01-5.51-5.511 1.125 1.125 0 01.21-1.297l.665-.665a1.5 1.5 0 00.432-1.51L7.585 3.378a1.5 1.5 0 00-1.453-1.128H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+              </div>
+              <div>
+                <p class="font-bold text-sm">24/7 Emergency Line</p>
+                <p class="text-white/70 text-sm mt-1">+234 800 007 2926</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-royal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+              </div>
+              <div>
+                <p class="font-bold text-sm">Email</p>
+                <p class="text-white/70 text-sm mt-1">info@rayamsecurity.com</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal reveal-delay-2 relative rounded-[1.75rem] overflow-hidden shadow-navy-md flex-1 min-h-[240px]">
+            <iframe
+              title="Rayam Security Limited location — No. 2 Ahmadu Ali Crescent, Utako, Abuja"
+              class="w-full h-full min-h-[240px] grayscale-[15%] contrast-[1.05]"
+              src="https://www.google.com/maps?q=No.2+Ahmadu+Ali+Crescent,+Utako,+Abuja,+Nigeria&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <div class="absolute top-4 left-4 glass-light rounded-lg px-4 py-2.5 pointer-events-none">
+              <p class="text-navy-800 font-bold text-xs">Utako, Abuja</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CAREERS BAND ============ -->
+  <section class="bg-white py-16 border-t border-navy-800/5">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="reveal flex flex-col md:flex-row items-center justify-between gap-6 bg-royal-50/70 rounded-[1.75rem] px-8 py-10">
+        <div class="text-center md:text-left">
+          <h3 class="font-display font-extrabold text-2xl text-navy-800">Join the Rayam Team</h3>
+          <p class="text-navy-700/70 mt-2 max-w-xl">We're always looking for disciplined, trustworthy professionals to join Nigeria's trusted security force.</p>
+        </div>
+        <a href="#contact" class="btn-spring shrink-0 inline-flex items-center gap-2 bg-navy-800 hover:bg-navy-700 text-white font-bold text-sm px-7 py-3.5 rounded-full shadow-navy-md">
+          View Opportunities
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="relative bg-navy-950 grain pt-20 pb-8 overflow-hidden">
+    <div class="absolute inset-0 bg-panel-gradient"></div>
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-12 pb-14 border-b border-white/10">
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-3 mb-5">
+            <img src="images/logo-icon.png" width="40" height="40" alt="Rayam Security Limited shield logo" class="shrink-0" />
+            <span class="leading-none">
+              <span class="block font-display font-extrabold text-lg text-white">RAYAM SECURITY</span>
+              <span class="block font-body font-semibold text-[11px] tracking-[0.35em] text-royal-300">LIMITED</span>
+            </span>
+          </div>
+          <p class="text-white/60 text-sm leading-[1.7] max-w-sm">Licensed private security services based in Abuja, Nigeria, serving corporate, government, residential, and industrial clients nationwide.</p>
+          <div class="flex items-center gap-3 mt-6">
+            <a href="#" aria-label="LinkedIn" class="w-9 h-9 rounded-full glass flex items-center justify-center text-white/70 hover:text-white hover:bg-white/15 transition-colors duration-300"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 110-4.125 2.062 2.062 0 010 4.125zM7.119 20.452H3.554V9h3.565v11.452z"/></svg></a>
+            <a href="#" aria-label="X" class="w-9 h-9 rounded-full glass flex items-center justify-center text-white/70 hover:text-white hover:bg-white/15 transition-colors duration-300"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-full glass flex items-center justify-center text-white/70 hover:text-white hover:bg-white/15 transition-colors duration-300"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.332.014 7.052.072 2.695.272.273 2.69.073 7.052.014 8.332 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.332 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.668-.072-4.948-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0z"/></svg></a>
+            <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-full glass flex items-center justify-center text-white/70 hover:text-white hover:bg-white/15 transition-colors duration-300"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12.06C22 6.505 17.523 2 12 2S2 6.505 2 12.06c0 5.022 3.657 9.184 8.438 9.94v-7.03H7.898v-2.91h2.54V9.845c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562v1.877h2.773l-.443 2.91h-2.33V22c4.78-.756 8.437-4.918 8.437-9.94z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-white font-bold text-sm tracking-wide uppercase mb-5">Company</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="#about" class="text-white/60 hover:text-white transition-colors duration-300">About Us</a></li>
+            <li><a href="#" class="text-white/60 hover:text-white transition-colors duration-300">Careers</a></li>
+            <li><a href="#" class="text-white/60 hover:text-white transition-colors duration-300">News &amp; Insights</a></li>
+            <li><a href="#contact" class="text-white/60 hover:text-white transition-colors duration-300">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-bold text-sm tracking-wide uppercase mb-5">Services</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="#services" class="text-white/60 hover:text-white transition-colors duration-300">Manned Guarding</a></li>
+            <li><a href="#services" class="text-white/60 hover:text-white transition-colors duration-300">Mobile Patrol</a></li>
+            <li><a href="#services" class="text-white/60 hover:text-white transition-colors duration-300">CCTV &amp; Surveillance</a></li>
+            <li><a href="#services" class="text-white/60 hover:text-white transition-colors duration-300">Port &amp; Terminal Security</a></li>
+            <li><a href="#services" class="text-white/60 hover:text-white transition-colors duration-300">K9 Unit Patrol</a></li>
+            <li><a href="#services" class="text-white/60 hover:text-white transition-colors duration-300">Executive Protection</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-bold text-sm tracking-wide uppercase mb-5">Legal</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="#" class="text-white/60 hover:text-white transition-colors duration-300">Privacy Policy</a></li>
+            <li><a href="#" class="text-white/60 hover:text-white transition-colors duration-300">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-white/40 text-xs">© <span id="year"></span> Rayam Security Limited. All rights reserved.</p>
+        <p class="text-royal-300/70 text-xs font-semibold tracking-[0.15em] uppercase">Protecting What Matters Most</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Navbar scroll state (glass -> solid on scroll)
+    const navbar = document.getElementById('navbar');
+    const wordmark = document.getElementById('wordmark');
+    const wordmarkSub = document.getElementById('wordmark-sub');
+    function onScrollNav() {
+      if (window.scrollY > 60) {
+        navbar.classList.add('glass-nav', 'shadow-navy-md');
+      } else {
+        navbar.classList.remove('glass-nav', 'shadow-navy-md');
+      }
+    }
+    window.addEventListener('scroll', onScrollNav, { passive: true });
+    onScrollNav();
+
+    // Parallax hero
+    const heroBg = document.getElementById('hero-bg');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y < window.innerHeight * 1.2) {
+        heroBg.style.transform = `translateY(${y * 0.25}px)`;
+      }
+    }, { passive: true });
+
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach((el) => io.observe(el));
+
+    // Animated counters
+    const counters = document.querySelectorAll('.counter');
+    const counterIO = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.target, 10);
+          const duration = 1800;
+          const start = performance.now();
+          function tick(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.floor(eased * target);
+            if (progress < 1) requestAnimationFrame(tick);
+            else el.textContent = target;
+          }
+          requestAnimationFrame(tick);
+          counterIO.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach((el) => counterIO.observe(el));
+
+    // Contact form (client-side demo submission)
+    const form = document.getElementById('contact-form');
+    const success = document.getElementById('form-success');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      success.classList.remove('hidden');
+      form.reset();
+    });
+  </script>
+</body>
