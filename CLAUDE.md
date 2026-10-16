@@ -25,7 +25,9 @@
 
 ## Screenshot Workflow
 
-- Puppeteer is installed at `C:/Users/nateh/AppData/Local/Temp/puppeteer-test/`. Chrome cache is at `C:/Users/nateh/.cache/puppeteer/`.
+- Environment is macOS (Apple Silicon). Node.js LTS is installed at `~/.local/node` and added to `PATH` in `~/.zshrc`.
+- Puppeteer is a project dependency in `./node_modules` (run `npm ci` if missing). Its Chrome lives in `~/.cache/puppeteer/` (reinstall with `npx puppeteer browsers install chrome`).
+- Optional third argument sets the viewport: `node screenshot.mjs http://localhost:3000 mobile 390x844` (default `1440x900`).
 - **Always screenshot from localhost:** `node screenshot.mjs http://localhost:3000`
 - Screenshots are saved automatically to `./temporary_screenshots/screenshot-N.png` (auto-incremented, never overwritten).
 - Optional label suffix: `node screenshot.mjs http://localhost:3000 label` → saves as `screenshot-N-label.png`

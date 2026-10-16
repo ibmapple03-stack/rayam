@@ -22,13 +22,18 @@ if (existing.length) {
 const fileName = `screenshot-${n}${label ? "-" + label : ""}.png`;
 const outPath = path.join(outDir, fileName);
 
+// Prefer Puppeteer's bundled Chrome (~/.cache/puppeteer); fall back to an installed macOS browser.
 const systemChromePaths = [
-  "C:/Program Files/Google/Chrome/Application/chrome.exe",
-  "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe",
-  "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe",
-  "C:/Program Files/Microsoft/Edge/Application/msedge.exe",
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+  "/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge",
+  "/Applications/Chromium.app/Contents/MacOS/Chromium",
 ];
-const executablePath = systemChromePaths.find((p) => fs.existsSync(p));
+let executablePath;
+try {
+  if (!fs.existsSync(await puppeteer.executablePath())) throw new Error("bundled Chrome missing");
+} catch {
+  executablePath = systemChromePaths.find((p) => fs.existsSync(p));
+}
 
 const browser = await puppeteer.launch({
   headless: "new",
@@ -37,6 +42,16 @@ const browser = await puppeteer.launch({
 const page = await browser.newPage();
 await page.setViewport({ width: width || 1440, height: height || 900 });
 await page.goto(url, { waitUntil: "networkidle0", timeout: 60000 });
+// scroll through the page so scroll-triggered reveals/counters fire, then return to top
+await page.evaluate(async () => {
+  // "instant" overrides the page's smooth scrolling so each step lands immediately
+  for (let y = 0; y < document.documentElement.scrollHeight; y += window.innerHeight / 2) {
+    window.scrollTo({ top: y, behavior: "instant" });
+    await new Promise(r => setTimeout(r, 120));
+  }
+  window.scrollTo({ top: 0, behavior: "instant" });
+});
+await new Promise(r => setTimeout(r, 1200));
 // let animations / lazy content settle
 await new Promise(r => setTimeout(r, 800));
 await page.screenshot({ path: outPath, fullPage: true });
