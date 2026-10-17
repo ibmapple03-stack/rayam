@@ -3,3 +3,4 @@ temporary_screenshots/
 server.log
 *.log
 .claude/
+.DS_Store
